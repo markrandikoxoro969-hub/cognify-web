@@ -3,7 +3,7 @@ import { Quote, Star } from 'lucide-react'
 import { SectionHead } from './ui'
 
 const items = [
-  ['Went from a C to an A* in Maths in two terms. The AI tutor at midnight before exams was a lifesaver.', 'Aanya S.', 'A-Level student', 'C → A*', '#c4b5fd'],
+  ['Went from a C to an A* in Maths in two terms. The AI tutor at midnight before exams was a lifesaver.', 'Aanya S.', 'A-Level student', 'C → A*', '#f1c878'],
   ['Dr. Maya made quantum physics feel obvious. Then Cognify quizzed me until I actually knew it.', 'Rohan K.', 'IB Diploma', '7 in Physics', '#67e8f9'],
   ["As a parent, the weekly reports are gold. I finally know what's going on — and his confidence is way up.", 'Priya M.', 'Parent', '+2 grades', '#fcd34d'],
   ['I use the AI to plan my week and break down essays. It explains instead of just giving answers.', 'Lucas B.', 'University, Year 1', 'First-class', '#86efac'],
@@ -13,7 +13,7 @@ const items = [
 
 export default function Testimonials() {
 
-  const loop = [...items, ...items]
+  const loop = items
 
   return (
     <section id="reviews" style={{ overflow: 'hidden' }}>
@@ -27,7 +27,7 @@ export default function Testimonials() {
       <div className="testi-wrap marquee">
         <motion.div className="testi-track">
           {loop.map(([quote, name, role, grade, color], i) => (
-            <motion.article key={i} className="card testi" whileHover={{ y: -6, borderColor: 'rgba(167,139,250,0.35)' }}>
+            <motion.article key={i} className="card testi" whileHover={{ y: -6, borderColor: 'rgba(233,169,74,0.35)' }}>
               <div className="stars">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={15} fill="currentColor" />)}</div>
               <blockquote>“{quote}”</blockquote>
               <div className="testi-person">

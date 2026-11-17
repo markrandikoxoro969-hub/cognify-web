@@ -20,7 +20,7 @@ function Heatmap() {
           key={i}
           variants={{
             hidden: { opacity: 0, scale: 0.4 },
-            visible: { opacity: 1, scale: 1, background: `rgba(167,139,250,${0.08 + v * 0.75})` },
+            visible: { opacity: 1, scale: 1, background: `rgba(233,169,74,${0.08 + v * 0.75})` },
           }}
         />
       ))}
@@ -42,7 +42,7 @@ function Ring() {
           transition={{ duration: 1.8, ease }}
         />
         <defs>
-          <linearGradient id="rg"><stop offset="0" stopColor="#a78bfa" /><stop offset="1" stopColor="#22d3ee" /></linearGradient>
+          <linearGradient id="rg"><stop offset="0" stopColor="#e9a94a" /><stop offset="1" stopColor="#d7b77a" /></linearGradient>
         </defs>
         <text x="60" y="58" textAnchor="middle" fill="#fff" fontSize="22" fontWeight="700">92%</text>
         <text x="60" y="76" textAnchor="middle" fill="#9a98b0" fontSize="9">exam ready</text>
@@ -86,7 +86,7 @@ const features = [
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 + i * 0.05 }}
-            whileHover={{ y: -3, borderColor: 'rgba(167,139,250,0.5)', color: '#fff' }}
+            whileHover={{ y: -3, borderColor: 'rgba(233,169,74,0.5)', color: '#fff' }}
           >
             {l}
           </motion.span>
