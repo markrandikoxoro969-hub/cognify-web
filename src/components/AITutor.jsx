@@ -13,12 +13,7 @@ const points = [
 export default function AITutor() {
   return (
     <section id="ai-tutor" className="ai-section">
-      <motion.div
-        className="blob"
-        style={{ width: 600, height: 600, background: 'rgba(99,102,241,0.22)', top: '10%', right: '-10%' }}
-        animate={{ scale: [1, 1.15, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      <div className="blob" style={{ width: 600, height: 600, background: 'rgba(161, 63, 42, 0.12)', top: '10%', right: '-10%' }} />
       <div className="container ai-grid">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} variants={stagger(0.1)}>
           <motion.span className="eyebrow" variants={fadeUp}>

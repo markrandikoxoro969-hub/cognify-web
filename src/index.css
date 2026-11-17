@@ -1,6 +1,6 @@
 :root {
-  --bg: #07070d;
-  --bg-2: #0c0c16;
+  --bg: #090a0d;
+  --bg-2: #111217;
   --panel: rgba(255, 255, 255, 0.035);
   --panel-2: rgba(255, 255, 255, 0.06);
   --line: rgba(255, 255, 255, 0.08);
@@ -8,13 +8,13 @@
   --text: #ecebf5;
   --muted: #9a98b0;
   --dim: #6b6982;
-  --violet: #a78bfa;
-  --indigo: #6366f1;
-  --cyan: #22d3ee;
-  --gold: #fcd34d;
-  --grad: linear-gradient(120deg, #c4b5fd 0%, #818cf8 40%, #22d3ee 100%);
+  --violet: #e9a94a;
+  --indigo: #a73832;
+  --cyan: #d7b77a;
+  --gold: #efbd61;
+  --grad: linear-gradient(120deg, #f1c878 0%, #d99743 48%, #a83932 100%);
   --radius: 22px;
-  --sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans: 'Inter Variable', 'Noto Sans Devanagari Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --serif: 'Instrument Serif', ui-serif, Georgia, serif;
   --max: 1200px;
 }
@@ -425,3 +425,72 @@ footer { padding: 70px 0 40px; border-top: 1px solid var(--line); margin-top: 40
 .toggle .tab-pill { position: absolute; inset: 0; background: #fff; border-radius: 999px; z-index: -1; }
 .md .math { font-family: var(--serif); font-style: italic; font-size: 1.12em; color: #ddd6fe; padding: 0 2px; white-space: nowrap; }
 .widget .chat { background: linear-gradient(180deg, #161626, #0b0b14); }
+
+/* Refined Nepal-inspired palette + lightweight ambient treatment */
+:root {
+  --line: rgba(242, 215, 169, 0.11);
+  --line-2: rgba(242, 215, 169, 0.2);
+  --text: #f5f0e8;
+  --muted: #b4ada2;
+  --dim: #827a70;
+  --panel: rgba(245, 235, 216, 0.035);
+  --panel-2: rgba(245, 235, 216, 0.075);
+}
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse at 50% -15%, rgba(139, 50, 39, .16), transparent 55%);
+}
+.noise { display: none; }
+.hero .grid-bg {
+  background-image: linear-gradient(rgba(242,215,169,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(242,215,169,.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 60% at 52% 32%, #000 20%, transparent 76%);
+}
+.hero .blob { filter: blur(64px); opacity: .55; }
+.btn-primary { color: #21160e; background: linear-gradient(110deg, #f4d28a, #e5aa57); box-shadow: 0 8px 30px -14px rgba(223, 155, 69, .45); }
+.btn-primary::before { background: linear-gradient(120deg, #f1c878, #a83932); filter: blur(18px); opacity: .24; }
+.icon-tile { background: linear-gradient(135deg, rgba(233,169,74,.18), rgba(167,56,50,.13)); border-color: rgba(233,169,74,.24); color: #f0c675; }
+.nav.scrolled { background: rgba(12, 12, 15, .88); }
+.card { background: linear-gradient(155deg, rgba(255,248,232,.05), rgba(255,248,232,.015)); }
+@media (max-width: 720px) {
+  .blob, .spotlight, .noise { display: none !important; }
+  .nav.scrolled { backdrop-filter: blur(10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* A calm, layered Himalayan dusk treatment: static gradients avoid perpetual paint work. */
+.hero {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 70% 52% at 78% 34%, rgba(161, 63, 42, .15), transparent 72%),
+    radial-gradient(ellipse 55% 60% at 6% 20%, rgba(218, 165, 88, .11), transparent 72%),
+    linear-gradient(180deg, #0b0b0d 0%, #0a0b0f 75%, #090a0d 100%);
+}
+.hero .blob { display: none; }
+.h-display, .h-section { text-wrap: balance; }
+.serif { font-family: var(--serif); }
+:lang(ne), [lang="ne"] { font-family: 'Noto Sans Devanagari Variable', var(--sans); }
+.chat-glow { opacity: .22; }
+/* Defer offscreen sections until they're near view; intrinsic sizes prevent scroll jumps. */
+@supports (content-visibility: auto) {
+  main > section:not(.hero) { content-visibility: auto; contain-intrinsic-size: auto 820px; }
+}
+@media (max-width: 720px) {
+  .hero { background:
+    radial-gradient(ellipse 100% 35% at 80% 18%, rgba(161, 63, 42, .13), transparent 72%),
+    linear-gradient(180deg, #0b0b0d, #090a0d); }
+  main > section:not(.hero) { contain-intrinsic-size: auto 680px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .testi-track { animation: none !important; }
+}
+.marquee-track {
+  animation: subject-marquee var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+.marquee-track.reverse { animation-name: subject-marquee-reverse; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes subject-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+@keyframes subject-marquee-reverse { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }

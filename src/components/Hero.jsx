@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, Play, Sparkles, Star, TrendingUp, Flame, GraduationCap } from 'lucide-react'
 import { Magnetic, ease } from './ui'
 import { useChat } from '../hooks/useChat'
@@ -24,50 +23,24 @@ function Words({ words, delay = 0, className }) {
 }
 
 export default function Hero() {
-  const ref = useRef(null)
   const { setWidgetOpen } = useChat()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const yVisual = useTransform(scrollYProgress, [0, 1], [0, 140])
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 60])
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-
-  // Cursor spotlight + subtle 3D tilt of the mock
-  const mx = useMotionValue(-1000)
-  const my = useMotionValue(-1000)
-  const sx = useSpring(mx, { stiffness: 120, damping: 20 })
-  const sy = useSpring(my, { stiffness: 120, damping: 20 })
-  const tiltX = useMotionValue(0)
-  const tiltY = useMotionValue(0)
-  const rX = useSpring(tiltX, { stiffness: 100, damping: 18 })
-  const rY = useSpring(tiltY, { stiffness: 100, damping: 18 })
-
-  const onMove = (e) => {
-    const r = ref.current.getBoundingClientRect()
-    mx.set(e.clientX - r.left)
-    my.set(e.clientY - r.top)
-    tiltY.set(((e.clientX - r.left) / r.width - 0.5) * 10)
-    tiltX.set(-((e.clientY - r.top) / r.height - 0.5) * 8)
-  }
 
   return (
-    <section id="top" className="hero" ref={ref} onMouseMove={onMove}>
+    <section id="top" className="hero">
       <div className="grid-bg" />
-      <motion.div
+      <div
         className="blob"
         style={{ width: 520, height: 520, background: 'rgba(124,58,237,0.35)', top: -120, left: -120 }}
-        animate={{ x: [0, 80, 0], y: [0, 60, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+
       />
-      <motion.div
+      <div
         className="blob"
         style={{ width: 460, height: 460, background: 'rgba(34,211,238,0.18)', top: 80, right: -160 }}
-        animate={{ x: [0, -60, 0], y: [0, 90, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+
       />
-      <motion.div className="spotlight" style={{ x: sx, y: sy }} />
 
       <div className="container hero-inner">
-        <motion.div style={{ y: yText, opacity: fade }}>
+        <motion.div>
           <motion.a
             href="#ai-tutor"
             className="eyebrow"
@@ -77,7 +50,7 @@ export default function Hero() {
             whileHover={{ scale: 1.03 }}
           >
             <span className="dot"><Sparkles size={12} strokeWidth={2.5} /></span>
-            New — Cognify AI tutor, awake 24/7
+            Made for curious minds in Nepal · AI tutor, 24/7
             <ArrowRight size={14} />
           </motion.a>
 
@@ -93,8 +66,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.6 }}
           >
-            Premium one-to-one tuition from hand-picked tutors, paired with an AI study
-            companion that explains, quizzes and plans with you — any subject, any hour.
+            Thoughtful one-to-one learning for Nepal’s next generation — expert tutors
+            and an AI study companion that explains, quizzes and plans with you, any hour.
           </motion.p>
 
           <motion.div
@@ -137,10 +110,10 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div className="hero-visual" style={{ y: yVisual, perspective: 1200 }}>
+        <motion.div className="hero-visual">
           <motion.div
             className="mock"
-            style={{ rotateX: rX, rotateY: rY, transformStyle: 'preserve-3d' }}
+
             initial={{ opacity: 0, y: 60, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.1, ease, delay: 0.3 }}
@@ -160,8 +133,8 @@ export default function Hero() {
             dragSnapToOrigin
             whileDrag={{ scale: 1.06 }}
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
-            transition={{ opacity: { delay: 1 }, x: { delay: 1, duration: 0.8, ease }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ opacity: { delay: 1 }, x: { delay: 1, duration: 0.8, ease },  }}
           >
             <div className="fc-row">
               <div className="fc-icon" style={{ background: 'rgba(52,211,153,0.15)', color: '#6ee7b7' }}><TrendingUp size={18} /></div>
@@ -179,8 +152,8 @@ export default function Hero() {
             dragSnapToOrigin
             whileDrag={{ scale: 1.06 }}
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0, y: [0, 12, 0] }}
-            transition={{ opacity: { delay: 1.2 }, x: { delay: 1.2, duration: 0.8, ease }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ opacity: { delay: 1.2 }, x: { delay: 1.2, duration: 0.8, ease },  }}
           >
             <div className="fc-label">Weekly goal · Calculus</div>
             <div className="fc-row" style={{ justifyContent: 'space-between' }}>
@@ -199,8 +172,8 @@ export default function Hero() {
             dragSnapToOrigin
             whileDrag={{ scale: 1.06 }}
             initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1, rotate: [-3, 3, -3] }}
-            transition={{ opacity: { delay: 1.4 }, scale: { delay: 1.4, type: 'spring' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ opacity: { delay: 1.4 }, scale: { delay: 1.4, type: 'spring' },  }}
           >
             <div className="fc-row">
               <div className="fc-icon" style={{ background: 'rgba(252,211,77,0.15)', color: '#fcd34d' }}><GraduationCap size={18} /></div>
@@ -213,10 +186,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.div className="scroll-hint" style={{ opacity: fade }}>
-        <div className="mouse"><motion.i animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }} transition={{ duration: 1.8, repeat: Infinity }} /></div>
+      <div className="scroll-hint">
+        <div className="mouse"><i /></div>
         Scroll
-      </motion.div>
+      </div>
     </section>
   )
 }
@@ -237,12 +210,7 @@ function MockChat() {
       <motion.div className="bubble user" {...item(2.5)}>Can you quiz me on this?</motion.div>
       <motion.div className="bubble ai" {...item(3.2)} style={{ display: 'flex', gap: 5, padding: '16px 18px' }}>
         {[0, 1, 2].map((i) => (
-          <motion.i
-            key={i}
-            style={{ width: 7, height: 7, borderRadius: '50%', background: '#a78bfa', display: 'block' }}
-            animate={{ y: [0, -5, 0], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
-          />
+          <i key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: '#e9a94a', display: 'block', opacity: 0.75 }} />
         ))}
       </motion.div>
     </>

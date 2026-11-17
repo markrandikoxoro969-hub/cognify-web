@@ -17,8 +17,8 @@ export function CTA() {
           transition={{ duration: 1, ease }}
         >
           <div className="grid-bg" />
-          <motion.div className="blob" style={{ width: 400, height: 400, background: 'rgba(34,211,238,0.2)', bottom: -200, left: '10%' }} animate={{ x: [0, 100, 0] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
-          <motion.div className="blob" style={{ width: 400, height: 400, background: 'rgba(167,139,250,0.3)', bottom: -200, right: '10%' }} animate={{ x: [0, -100, 0] }} transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }} />
+          <div className="blob" style={{ width: 400, height: 400, background: 'rgba(161, 63, 42, 0.12)', bottom: -200, left: '10%' }} />
+          <div className="blob" style={{ width: 400, height: 400, background: 'rgba(218, 165, 88, 0.1)', bottom: -200, right: '10%' }} />
           <div style={{ position: 'relative' }}>
             <h2 className="h-section">Your best grades start <span className="serif grad-text">tonight.</span></h2>
             <p className="lead">Join 48,000+ students learning smarter with Cognify. Free to start — no card needed.</p>
