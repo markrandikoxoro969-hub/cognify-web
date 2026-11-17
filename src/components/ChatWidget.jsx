@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { Sparkles, X } from 'lucide-react'
 import ChatPanel from './ChatPanel'
 import { useChat } from '../hooks/useChat'

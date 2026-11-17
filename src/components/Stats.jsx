@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Counter, fadeUp, stagger } from './ui'
 
 const stats = [

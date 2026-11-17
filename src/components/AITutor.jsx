@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Check, Bot } from 'lucide-react'
 import ChatPanel from './ChatPanel'
+import DiyoLamp from './DiyoLamp'
 import { fadeUp, stagger, ease } from './ui'
 
 const points = [
@@ -38,12 +39,14 @@ export default function AITutor() {
         </motion.div>
 
         <motion.div
+          className="ai-chat-stage"
           initial={{ opacity: 0, y: 60, rotateX: 12, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease }}
           style={{ perspective: 1200 }}
         >
+          <DiyoLamp />
           <ChatPanel />
         </motion.div>
       </div>

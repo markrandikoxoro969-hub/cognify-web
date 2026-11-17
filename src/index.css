@@ -1,5 +1,7 @@
+@tailwind utilities;
+
 :root {
-  --bg: #090a0d;
+  --bg: #07070d;
   --bg-2: #111217;
   --panel: rgba(255, 255, 255, 0.035);
   --panel-2: rgba(255, 255, 255, 0.06);
@@ -538,7 +540,7 @@ body { font-size: 16px; letter-spacing: -0.008em; }
 
 /* Premium finishing system: quiet contrast, considered rhythm, clear interactions. */
 :root {
-  --bg: #0b0c0e;
+  --bg: #07070d;
   --bg-2: #111214;
   --text: #f7f2e9;
   --muted: #b7b0a4;
@@ -594,4 +596,50 @@ section:not(.hero) { scroll-margin-top: 86px; }
 }
 @media (hover: none) {
   .course:hover { transform: none; }
+}
+
+/* Nepali visual motifs: low-contrast, decorative, and kept off the content layer. */
+.hero { position: relative; isolation: isolate; }
+.hero .container { position: relative; z-index: 3; }
+.background-beams { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; opacity: .52; pointer-events: none; }
+.beam-path { opacity: .36; }
+.devanagari-drift { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; color: rgba(236, 206, 151, .09); font-family: 'Noto Sans Devanagari Variable', sans-serif; }
+.devanagari-drift span { position: absolute; font-size: clamp(5rem, 11vw, 10rem); line-height: 1; font-weight: 300; animation: devanagari-float 18s ease-in-out infinite alternate; }
+.devanagari-drift span:nth-child(1) { left: 4%; top: 22%; animation-delay: -2s; }
+.devanagari-drift span:nth-child(2) { left: 40%; top: 10%; animation-delay: -8s; font-size: clamp(4rem, 8vw, 7rem); }
+.devanagari-drift span:nth-child(3) { right: 7%; top: 26%; animation-delay: -5s; }
+.devanagari-drift span:nth-child(4) { right: 35%; top: 54%; animation-delay: -12s; font-size: clamp(4rem, 7vw, 6rem); }
+@keyframes devanagari-float { from { transform: translate3d(0, 5px, 0) rotate(-4deg); } to { transform: translate3d(0, -18px, 0) rotate(3deg); } }
+.hero-mountains { position: absolute; z-index: 2; left: 0; right: 0; bottom: -2px; height: clamp(130px, 22vw, 260px); overflow: hidden; pointer-events: none; }
+.mountain-range { position: absolute; inset: auto 0 0; width: 100%; height: 100%; }
+.mountain-range path { fill: #111016; }
+.mountain-range-back { opacity: .45; bottom: 20px; }
+.mountain-range-back path { fill: #27202a; }
+.mountain-range-front { opacity: .9; }
+.hero .scroll-hint { z-index: 4; }
+.buddha-divider { display: flex; align-items: center; justify-content: center; gap: 22px; width: min(680px, calc(100% - 40px)); margin: -34px auto 0; position: relative; z-index: 2; color: rgba(227, 186, 116, .62); }
+.buddha-eyes { width: 124px; height: 48px; flex: none; }
+.buddha-rule { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgba(227,186,116,.23)); }
+.buddha-rule:last-child { transform: rotate(180deg); }
+.ai-chat-stage { position: relative; }
+.diyo-wrap { position: absolute; z-index: 3; top: -44px; right: 28px; width: 82px; height: 77px; display: grid; place-items: end center; pointer-events: none; }
+.diyo-vessel { position: relative; z-index: 2; width: 82px; filter: drop-shadow(0 6px 22px rgba(232,167,83,.22)); }
+.diyo-halo { position: absolute; bottom: 17px; width: 72px; height: 58px; border-radius: 50%; background: rgba(242,174,77,.17); filter: blur(18px); }
+.diyo-flame { position: absolute; z-index: 1; left: 50%; bottom: 39px; width: 13px; height: 25px; border-radius: 100% 0 100% 100%; transform: translateX(-50%) rotate(45deg); transform-origin: 50% 100%; background: radial-gradient(ellipse at 62% 70%, #fff5ca 0 8%, #ffd671 30%, #eb873b 69%, rgba(202,80,37,0) 100%); box-shadow: 0 0 12px rgba(255,190,82,.7), 0 0 32px rgba(247,156,63,.28); animation: diyo-flicker 1.7s ease-in-out infinite alternate; }
+@keyframes diyo-flicker { 0% { transform: translateX(-50%) rotate(42deg) scale(.94, 1); opacity: .9; } 45% { transform: translateX(-54%) rotate(49deg) scale(1.06, .92); opacity: 1; } 100% { transform: translateX(-47%) rotate(39deg) scale(.98, 1.08); opacity: .93; } }
+@media (max-width: 720px) {
+  .hero-mountains { height: 120px; }
+  .mountain-range-back { bottom: 10px; }
+  .background-beams { opacity: .25; }
+  .devanagari-drift span:nth-child(2), .devanagari-drift span:nth-child(4) { display: none; }
+  .diyo-wrap { width: 62px; height: 62px; top: -39px; right: 16px; }
+  .diyo-vessel { width: 64px; }
+  .diyo-flame { bottom: 33px; width: 11px; height: 20px; }
+  .diyo-halo { bottom: 12px; width: 58px; height: 44px; }
+  .buddha-divider { margin-top: -26px; gap: 12px; }
+  .buddha-eyes { width: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .devanagari-drift span, .diyo-flame { animation: none !important; }
+  .beam-path { opacity: .22; }
 }

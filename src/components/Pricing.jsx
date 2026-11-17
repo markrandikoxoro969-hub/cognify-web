@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { Check, Gem } from 'lucide-react'
 import { Magnetic, SectionHead, fadeUp, spotlight, stagger } from './ui'
 
