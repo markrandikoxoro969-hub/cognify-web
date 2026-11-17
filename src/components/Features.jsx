@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Brain, CalendarClock, LineChart, MessagesSquare, ShieldCheck, Languages } from 'lucide-react'
 import { SectionHead, fadeUp, spotlight, stagger, ease } from './ui'
 

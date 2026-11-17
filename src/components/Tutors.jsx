@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { BadgeCheck, Star, Users } from 'lucide-react'
 import { SectionHead, fadeUp, stagger } from './ui'
 

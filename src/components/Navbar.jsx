@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react'
 import { Menu, X, Sparkles } from 'lucide-react'
 import { LogoMark, Magnetic, ease } from './ui'
 import { useChat } from '../hooks/useChat'

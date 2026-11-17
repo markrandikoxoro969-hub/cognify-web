@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { motion, useInView, useMotionValue, useSpring, animate } from 'framer-motion'
+import { motion, useInView, useMotionValue, useSpring, animate } from 'motion/react'
 import { Sparkles } from 'lucide-react'
 
 export const ease = [0.22, 1, 0.36, 1]

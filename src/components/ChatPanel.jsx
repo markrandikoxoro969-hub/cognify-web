@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { ArrowUp, RotateCcw, Sparkles, Square, X } from 'lucide-react'
 import { useChat } from '../hooks/useChat'
 import { Markdown } from '../lib/markdown'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { Atom, Calculator, FlaskConical, Dna, Code2, BookOpen, LineChart, Languages, Clock, Users, ArrowUpRight, BookMarked } from 'lucide-react'
 import { SectionHead, spotlight, ease } from './ui'
 

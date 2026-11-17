@@ -1,8 +1,9 @@
-import { MotionConfig } from 'framer-motion'
+import { MotionConfig } from 'motion/react'
 import { ChatProvider } from './hooks/useChat'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
+import BuddhaEyesDivider from './components/BuddhaEyesDivider'
 import Features from './components/Features'
 import Courses from './components/Courses'
 import AITutor from './components/AITutor'
@@ -24,6 +25,7 @@ export default function App() {
         <main>
           <Hero />
           <Marquee />
+          <BuddhaEyesDivider />
           <Features />
           <Courses />
           <AITutor />

@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { useRef } from 'react'
+import BackgroundBeams from './BackgroundBeams'
 import { ArrowRight, Play, Sparkles, Star, TrendingUp, Flame, GraduationCap } from 'lucide-react'
 import { Magnetic, ease } from './ui'
 import { useChat } from '../hooks/useChat'
@@ -24,9 +26,19 @@ function Words({ words, delay = 0, className }) {
 
 export default function Hero() {
   const { setWidgetOpen } = useChat()
+  const ref = useRef(null)
+  const reduceMotion = useReducedMotion()
+  // A small scroll-linked offset gives depth; it stays still for reduced-motion users.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const farMountainY = useTransform(scrollYProgress, [0, 1], [0, 18])
+  const nearMountainY = useTransform(scrollYProgress, [0, 1], [0, 34])
 
   return (
-    <section id="top" className="hero">
+    <section id="top" className="hero" ref={ref}>
+      <BackgroundBeams />
+      <div className="devanagari-drift" aria-hidden="true">
+        <span>अ</span><span>आ</span><span>क</span><span>ख</span>
+      </div>
       <div className="grid-bg" />
       <div className="container hero-inner">
         <motion.div>
@@ -182,6 +194,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      <div className="hero-mountains" aria-hidden="true">
+        <motion.svg className="mountain-range mountain-range-back" viewBox="0 0 1440 250" preserveAspectRatio="none" style={{ y: reduceMotion ? 0 : farMountainY }}>
+          <path d="M0 200 120 130 183 165 305 68 386 151 503 94 586 158 718 42 831 160 937 100 1045 164 1168 62 1278 157 1360 116 1440 174v76H0Z" />
+        </motion.svg>
+        <motion.svg className="mountain-range mountain-range-front" viewBox="0 0 1440 210" preserveAspectRatio="none" style={{ y: reduceMotion ? 0 : nearMountainY }}>
+          <path d="m0 165 124 20 115-72 99 47 116-88 98 93 112-42 102 54 105-94 109 91 106-44 122 54 132-41v67H0Z" />
+        </motion.svg>
+      </div>
       <div className="scroll-hint">
         <div className="mouse"><i /></div>
         Scroll
