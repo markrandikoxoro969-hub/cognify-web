@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useAnimationFrame, useMotionValue, useMotionTemplate } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUp, RotateCcw, Sparkles, Square, X } from 'lucide-react'
 import { useChat } from '../hooks/useChat'
 import { Markdown } from '../lib/markdown'
@@ -40,11 +40,6 @@ export default function ChatPanel({ onClose, autoFocus = false }) {
   const bodyRef = useRef(null)
   const taRef = useRef(null)
 
-  // Rotating conic border glow
-  const angle = useMotionValue(0)
-  useAnimationFrame((t) => angle.set((t / 25) % 360))
-  const angleVar = useMotionTemplate`${angle}deg`
-
   useEffect(() => {
     const el = bodyRef.current
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
@@ -79,7 +74,7 @@ export default function ChatPanel({ onClose, autoFocus = false }) {
 
   return (
     <div className="chat">
-      <motion.div className="chat-glow" style={{ '--angle': angleVar }} />
+      <div className="chat-glow" />
       <div className="chat-head">
         <div className="chat-id">
           <motion.div

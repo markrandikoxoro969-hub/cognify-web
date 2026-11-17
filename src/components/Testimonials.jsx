@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion, useAnimationFrame, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Quote, Star } from 'lucide-react'
 import { SectionHead } from './ui'
 
@@ -13,27 +12,6 @@ const items = [
 ]
 
 export default function Testimonials() {
-  const wrapRef = useRef(null)
-  const trackRef = useRef(null)
-  const x = useMotionValue(0)
-  const [paused, setPaused] = useState(false)
-  const [half, setHalf] = useState(0)
-
-  useEffect(() => {
-    const measure = () => setHalf((trackRef.current?.scrollWidth || 0) / 2)
-    measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [])
-
-  // Auto-scroll, pause on hover/drag, loop seamlessly
-  useAnimationFrame((_, delta) => {
-    if (paused || !half) return
-    let next = x.get() - delta * 0.04
-    if (next <= -half) next += half
-    if (next > 0) next -= half
-    x.set(next)
-  })
 
   const loop = [...items, ...items]
 
@@ -46,22 +24,8 @@ export default function Testimonials() {
           title={<>Real students. <span className="serif grad-text">Real results.</span></>}
         />
       </div>
-      <div
-        className="testi-wrap marquee"
-        ref={wrapRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
-        <motion.div
-          className="testi-track"
-          ref={trackRef}
-          style={{ x }}
-          drag="x"
-          dragConstraints={{ left: -Infinity, right: Infinity }}
-          dragMomentum={false}
-          onDragStart={() => setPaused(true)}
-          onDragEnd={() => setPaused(false)}
-        >
+      <div className="testi-wrap marquee">
+        <motion.div className="testi-track">
           {loop.map(([quote, name, role, grade, color], i) => (
             <motion.article key={i} className="card testi" whileHover={{ y: -6, borderColor: 'rgba(167,139,250,0.35)' }}>
               <div className="stars">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={15} fill="currentColor" />)}</div>

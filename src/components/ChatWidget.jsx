@@ -46,13 +46,9 @@ export default function ChatWidget() {
             </motion.span>
           ) : (
             <motion.span key="o" style={{ display: 'flex', alignItems: 'center', gap: 10 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <motion.span
-                className="ai-avatar"
-                animate={{ boxShadow: ['0 0 0 0 rgba(167,139,250,0.6)', '0 0 0 12px rgba(167,139,250,0)'] }}
-                transition={{ duration: 1.8, repeat: Infinity }}
-              >
+              <span className="ai-avatar">
                 <Sparkles size={20} />
-              </motion.span>
+              </span>
               <span className="fab-label">Ask Cognify</span>
             </motion.span>
           )}
