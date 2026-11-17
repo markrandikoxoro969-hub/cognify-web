@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://cognify-api-2.onrender.com/:path*" }
+  ]
+}
