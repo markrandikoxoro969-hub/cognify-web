@@ -3,8 +3,8 @@ import { ArrowRight, Play, Sparkles, Star, TrendingUp, Flame, GraduationCap } fr
 import { Magnetic, ease } from './ui'
 import { useChat } from '../hooks/useChat'
 
-const line1 = ['Learn', 'smarter.']
-const line2 = ['Score', 'higher.']
+const line1 = ['Your next', 'chapter']
+const line2 = ['starts here.']
 
 function Words({ words, delay = 0, className }) {
   return words.map((w, i) => (
@@ -28,17 +28,6 @@ export default function Hero() {
   return (
     <section id="top" className="hero">
       <div className="grid-bg" />
-      <div
-        className="blob"
-        style={{ width: 520, height: 520, background: 'rgba(124,58,237,0.35)', top: -120, left: -120 }}
-
-      />
-      <div
-        className="blob"
-        style={{ width: 460, height: 460, background: 'rgba(34,211,238,0.18)', top: 80, right: -160 }}
-
-      />
-
       <div className="container hero-inner">
         <motion.div>
           <motion.a
@@ -50,7 +39,7 @@ export default function Hero() {
             whileHover={{ scale: 1.03 }}
           >
             <span className="dot"><Sparkles size={12} strokeWidth={2.5} /></span>
-            Made for curious minds in Nepal · AI tutor, 24/7
+            <span lang="ne">नेपालका जिज्ञासु मनहरूका लागि · २४/७ AI Tutor</span>
             <ArrowRight size={14} />
           </motion.a>
 
@@ -66,8 +55,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.6 }}
           >
-            Thoughtful one-to-one learning for Nepal’s next generation — expert tutors
-            and an AI study companion that explains, quizzes and plans with you, any hour.
+            Personal tutoring and a thoughtful AI study companion, designed to help
+            students across Nepal learn with confidence — in English or Nepali.
           </motion.p>
 
           <motion.div
@@ -91,7 +80,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1 }}
           >
             <div className="avatars">
-              {[['AS', '#c4b5fd'], ['RK', '#67e8f9'], ['MP', '#fcd34d'], ['JL', '#86efac']].map(([t, c], i) => (
+              {[['AS', '#f1c878'], ['RK', '#67e8f9'], ['MP', '#fcd34d'], ['JL', '#86efac']].map(([t, c], i) => (
                 <motion.span
                   key={t}
                   style={{ background: c }}
@@ -118,12 +107,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.1, ease, delay: 0.3 }}
           >
-            <div className="mock-top">
-              <div className="mock-dots"><i /><i /><i /></div>
-              <div className="mock-title"><span className="live" /> Cognify · Physics session</div>
-              <span style={{ width: 42 }} />
+            <img
+              className="hero-landscape"
+              src="/images/annapurna-south.jpg"
+              alt="Annapurna South glowing in the evening light"
+              fetchPriority="high"
+              decoding="async"
+            />
+            <div className="landscape-shade" />
+            <div className="landscape-copy">
+              <span className="landscape-kicker">A little closer to your dreams</span>
+              <strong>Big horizons<br />begin with learning.</strong>
+              <span className="landscape-credit">Annapurna South · Photo <a href="https://commons.wikimedia.org/wiki/File:South_face_of_Annapurna_South.jpg" target="_blank" rel="noreferrer">Sudan Shrestha, CC BY-SA 3.0</a></span>
             </div>
-            <MockChat />
           </motion.div>
 
           <motion.div
@@ -191,28 +187,5 @@ export default function Hero() {
         Scroll
       </div>
     </section>
-  )
-}
-
-function MockChat() {
-  const item = (delay) => ({
-    initial: { opacity: 0, y: 14, scale: 0.96 },
-    animate: { opacity: 1, y: 0, scale: 1 },
-    transition: { delay, duration: 0.6, ease },
-  })
-  return (
-    <>
-      <motion.div className="bubble user" {...item(1.0)}>Why does a satellite not fall to Earth? 🤔</motion.div>
-      <motion.div className="bubble ai" {...item(1.7)}>
-        It <b>is</b> falling — constantly! It just moves sideways so fast that Earth curves away beneath it.
-        <div className="formula">v = √(GM / r) ≈ 7.8 km/s</div>
-      </motion.div>
-      <motion.div className="bubble user" {...item(2.5)}>Can you quiz me on this?</motion.div>
-      <motion.div className="bubble ai" {...item(3.2)} style={{ display: 'flex', gap: 5, padding: '16px 18px' }}>
-        {[0, 1, 2].map((i) => (
-          <i key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: '#e9a94a', display: 'block', opacity: 0.75 }} />
-        ))}
-      </motion.div>
-    </>
   )
 }

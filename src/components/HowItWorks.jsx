@@ -37,7 +37,7 @@ export default function HowItWorks() {
               <motion.div
                 className="step-num"
                 initial={{ scale: 0.6, rotate: -20 }}
-                whileInView={{ scale: 1, rotate: 0, borderColor: 'rgba(167,139,250,0.6)', boxShadow: '0 0 40px -6px rgba(167,139,250,0.5)' }}
+                whileInView={{ scale: 1, rotate: 0, borderColor: 'rgba(233,169,74,0.6)', boxShadow: '0 0 40px -6px rgba(233,169,74,0.5)' }}
                 viewport={{ once: true, margin: '-120px' }}
                 transition={{ type: 'spring', stiffness: 200, damping: 14 }}
               >

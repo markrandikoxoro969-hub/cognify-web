@@ -119,9 +119,9 @@ export function LogoMark({ className = 'logo-mark' }) {
     <svg className={className} viewBox="0 0 64 64" aria-hidden>
       <defs>
         <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#c4b5fd" />
-          <stop offset=".55" stopColor="#818cf8" />
-          <stop offset="1" stopColor="#22d3ee" />
+          <stop offset="0" stopColor="#f1c878" />
+          <stop offset=".55" stopColor="#d99743" />
+          <stop offset="1" stopColor="#d7b77a" />
         </linearGradient>
       </defs>
       <rect width="64" height="64" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />

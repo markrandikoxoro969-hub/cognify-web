@@ -25,7 +25,7 @@ export default function FAQ() {
                 key={q}
                 className="faq-item"
                 variants={fadeUp}
-                animate={{ borderColor: isOpen ? 'rgba(167,139,250,0.35)' : 'rgba(255,255,255,0.08)', backgroundColor: isOpen ? 'rgba(167,139,250,0.06)' : 'rgba(255,255,255,0.035)' }}
+                animate={{ borderColor: isOpen ? 'rgba(233,169,74,0.35)' : 'rgba(255,255,255,0.08)', backgroundColor: isOpen ? 'rgba(233,169,74,0.06)' : 'rgba(255,255,255,0.035)' }}
               >
                 <button className="faq-q" onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>
                   {q}
